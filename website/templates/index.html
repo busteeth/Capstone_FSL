@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FSL Letter Recognizer</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Filipino Sign Language Letter Recognizer</h1>
+  </header>
+
+  <div class="video-container">
+    <div class="video-wrapper">
+      <img src="{{ url_for('video_feed') }}" alt="Live camera feed">
+    </div>
+
+    <!-- Only big letter display -->
+    <div class="prediction-box">
+      <h2 id="detected-sign">—</h2>
+      <p id="confidence">Confidence: —</p>
+    </div>
+
+    <!-- Status indicator -->
+    <div class="status" id="status">Camera ready</div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button class="btn btn-primary" id="toggleRecognition">
+        <i class="fas fa-play"></i> Start
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    Powered by Flask + OpenCV + MediaPipe • Real-time FSL Letter Detection
+  </footer>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
